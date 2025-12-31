@@ -2,12 +2,12 @@
 # SOLECTRUS Cloudflare Tunnel
 
 ## Was ist ein Cloudflare Tunnel?
-[Cloudflare](https://www.cloudflare.com/) stellt mit dem Dienst Zero Trust eine Möglichkeit bereit, einen HTTP(S) Dienst über das Internet erreichbar zu machen, ohne einen Port am Router zu öffnen bzw. eine Weiterleitung einzurichten. Das funktioniert, indem der Dienst bzw. der Server auf dem der Dienst läuft einen verschlüsselten Tunnel zu Cloudflare aufbaut. Bei Cloudflare wird der Tunnel dann auf eine (Sub-)Domain konnektiert. Der Dienst kann somit aus dem Internet über die URL aufgerufen werden.
+[Cloudflare](https://www.cloudflare.com/) stellt mit dem Dienst Zero Trust eine Möglichkeit bereit, einen HTTP(S) Dienst über das Internet erreichbar zu machen, ohne einen Port am Router zu öffnen bzw. eine Weiterleitung einzurichten. Das funktioniert, indem der Dienst bzw. Server, auf dem der Dienst, läuft einen verschlüsselten Tunnel zu Cloudflare aufbaut. Bei Cloudflare wird der Tunnel dann auf eine (Sub-)Domain konnektiert. Der Dienst kann somit aus dem Internet über die URL aufgerufen werden.
 
 ## Sicherheit
-Durch den Tunnel ist das interne Netzwerk bereits geschützt. Es besteht nur der Zugriff über ein besteimmtes Protokoll (HTTP) direkt auf den Server.
+Durch den Tunnel ist das interne Netzwerk bereits geschützt. Es besteht nur der Zugriff über ein bestimmtes Protokoll (HTTP) direkt auf den Server.
 
-Weiterhin ist es möglich, für die URL Richtlinien festzulegen. Bspw. kann auf Länder eingeschränkt werden oder auch nur der Zugriff für eine bestimmte E-Mail Adresse erlaubt werden, vergleichbar mit einer 2FA-Anmeldung (2. Faktor). Kombinationen und weitere Enhscränlungen sind möglich.
+Weiterhin ist es möglich, für die URL Richtlinien festzulegen. Bspw. kann auf Länder eingeschränkt werden oder auch nur der Zugriff für eine bestimmte E-Mail Adresse erlaubt werden, vergleichbar mit einer 2FA-Anmeldung (2. Faktor). Kombinationen und weitere Einschränkungen sind möglich.
 
 Ein Cloudflare Tunnel ist damit eine sicherere Variante im Vergleich zu dynDNS in der Fritz-Box.
 
@@ -39,7 +39,7 @@ Cloudflare aufrufen und einloggen, im Menü "<b>Zero Trust</b>" anwählen. Alter
 ![Name](img/cf-1-3.png)
 
 6. Nun am besten die Schaltfläche "Docker" anwählen und den Befehl kopieren. Hier ist nur der Teil mit dem Token relevant. Der Befehl muss nicht auf dem SOLECTRUS Server ausgeführt werden.
-7. Die Schaltfäche "<b>Weiter</b> anklicken
+7. Die Schaltfläche "<b>Weiter</b> anklicken
 
 ![Token](img/cf-1-4.png)
 
@@ -53,7 +53,7 @@ Cloudflare aufrufen und einloggen, im Menü "<b>Zero Trust</b>" anwählen. Alter
 
 12. Mit der Schaltfläche "<b>Einrichtung abschließen</b>" werden die Informationen gespeichert und der Tunnel angelegt.
 
-![Ferig](img/cf-1-5.png)
+![Fertig](img/cf-1-5.png)
 
 ## Anpassungen auf dem SOLECTRUS Server / Docker-Stack
 
@@ -70,7 +70,7 @@ Anpassung `.env` Datei:
 # Cloudflare tunnel token
 CLOUDFLARE_TUNNEL_TOKEN=<token>
 ```
-> `<token>` muss durch das CLoudflare Tunnel Token ersetzt werden.
+> `<token>` muss durch das Cloudflare Tunnel Token ersetzt werden.
 
 Anpassung `compose.yml` (oder `docker-compose.yml`):
 ```
@@ -91,11 +91,11 @@ Anpassung `compose.yml` (oder `docker-compose.yml`):
 
 ### Neustart des Docker-Stacks
 
-Damit das Cloudfalre Docker Image geladen und gestartet wird, muss der SOLECTRUS Docker-Stack einmal neu gestartet werden:
+Damit das Cloudflare Docker Image geladen und gestartet wird, muss der SOLECTRUS Docker-Stack einmal neu gestartet werden:
 
 `docker compose down && docker compose up -d`
 
-Falls auf dem Server keine Updates von Docker und Docker Compose durchgeführt wurden, muss der ältere Befehl genutut werden:
+Falls auf dem Server keine Updates von Docker und Docker Compose durchgeführt wurden, muss der ältere Befehl genutzt werden:
 
 `docker-compose down && docker-compose up -d`
 
@@ -117,7 +117,7 @@ Wenn die folgende Fehlermeldung erscheint, ist etwas nicht korrekt in Cloudflare
 
 ## Optional: Tunnel absichern
 
-Die SOLECTRUS Strombilanz Dashboard ist jezt über die (Sub-)Domain über das Internet erreichbar. Ggf. soll der Zugeriff begrenzt werden.
+Die SOLECTRUS Strombilanz Dashboard ist jetzt über die (Sub-)Domain über das Internet erreichbar. Ggf. soll der Zugriff begrenzt werden.
 
 > Die Verbindung sollte vorher einmal geprüft werden, um sicher zu gehen, dass der Tunnel auch steht.
 
@@ -155,7 +155,7 @@ Beispiel: E-Mail Adresse als 2. Faktor
 ![Anwendung hinzufügen](img/cf-3-2.png)
 
 2. Sprechenden Namen vergeben, bspw. `SOLECTRUS Web`
-3. Schaltfäche anwählen "<b>+ Öffentlichen Hostenamen hinzufügen</b>" anwählen
+3. Schaltfläche anwählen "<b>+ Öffentlichen Hostnamen hinzufügen</b>" anwählen
 4. Gleiche Subdomain wie beim Tunnel eintragen
 5. Gleiche Domäne wie beim Tunnel eintragen
 6. Pfad leer lassen

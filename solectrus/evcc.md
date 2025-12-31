@@ -8,7 +8,7 @@
 1. Bestehende und eingerichtete evcc Instanz
 2. MQTT Broker
 
-> Die Einrichtung von evcc und SELECTRUS sind nicht Gegenstand dieser Anleitung.
+> Die Einrichtung von evcc und SOLECTRUS sind nicht Gegenstand dieser Anleitung.
 
 ## Links
 * [evcc](https://www.evcc.io/)
@@ -26,7 +26,7 @@ Der MQTT Broker kann entweder über die <b>Konfigurationsoberläche</b> oder dir
 
 ### Konfigurationsoberfläche
 
-In der <b>Konfigurationsoberfläche</b> kann die Einstellung im Burgermenüunkt "Konfiguration" ganz unten bei "Integrationen" vorgenommen werden. Hier einfach bei der Integration "MQTT" den Button für die EInstellungen anwählen und die folgenden Infos eintragen:
+In der <b>Konfigurationsoberfläche</b> kann die Einstellung im Burger Menüpunkt "Konfiguration" ganz unten bei "Integrationen" vorgenommen werden. Hier einfach bei der Integration "MQTT" den Button für die EInstellungen anwählen und die folgenden Infos eintragen:
 * Broker: `<url/ip>:1883`
 * Thema: `evcc`
 * Benutzer: `user` (optional)
@@ -53,7 +53,7 @@ Danach muss evcc einmal neu gestartet werden. Über Client Programme, kann man p
 
 ## SOLECTRUS Konfiguration
 
-Am einfachsten ist die Konfiguration über den [SOLECTRUS-Konfigurator](https://configurator.solectrus.de/). Hier läßt sich von vornherein anwählen, dass der MQTT-Konnektor genutzt werden soll und relevanten Daten werden abgefragt.
+Am einfachsten ist die Konfiguration über den [SOLECTRUS-Konfigurator](https://configurator.solectrus.de/). Hier lässt sich von vornherein anwählen, dass der MQTT-Konnektor genutzt werden soll und relevanten Daten werden abgefragt.
 
 Für evcc sind die folgenden Topics einzutragen:
 * Erzeugung: `evcc/site/pvPower`
@@ -74,7 +74,7 @@ Für evcc sind die folgenden Topics einzutragen:
 
 > SOLECTRUS unterstützt nur eine Wallbox und einen E-Auto Ladestand. Hier konfiguriert wird der E-Auto Ladenstand, der angezeigt wird, wenn ein E-Auto mit evcc / der Wallbox verbunden ist.
 >
-> Wer erweiterte Kenntnisse besitzt, kann sich aber die MQTT Topics aus anderen Quellen zusammenstellen. Es ist auch mögich die evcc Wallboxverbräuche zu addieren, wenn man mehrere Wallboxen hat.
+> Wer erweiterte Kenntnisse besitzt, kann sich aber die MQTT Topics aus anderen Quellen zusammenstellen. Es ist auch möglich die evcc Wallboxverbräuche zu addieren, wenn man mehrere Wallboxen hat.
 
 In der `.env` Datei sieht das dann folgendermaßen aus:
 
@@ -107,7 +107,7 @@ INFLUX_SENSOR_CAR_BATTERY_SOC=car:battery_soc
 MQTT_HOST=<ip>
 MQTT_PORT=1883
 MQTT_SSL=false
-MQTT_USERNAME=<usernam>
+MQTT_USERNAME=<username>
 MQTT_PASSWORD=<password>
 
 ##### Mappings
