@@ -61,9 +61,9 @@ Für evcc sind die folgenden Topics einzutragen:
 * Netzbezug-/einspeisung: `evcc/site/grid/power`
 * Netz: Vorzeichenbehandlung: <b>Positiv ist Netzbezug , Negativ ist Einspeisung</b>
 * Einspeisebegrenzung: <b><i>leer</i></b>
-* Batterie: Beladung / -entladung: `evcc/site/batteryPower`
+* Batterie: Beladung / -entladung: `evcc/site/battery/power`
 * Batterie: Vorzeichenbehandlung: <b>Positiv ist Entladung , Negativ ist Beladung</b>
-* Batterie-Ladestand: `evcc/site/batterySoc`
+* Batterie-Ladestand: `evcc/site/battery/soc`
 * Geräte- oder Gehäusetemperatur: <b><i>leer</i></b>
 * Wallbox: `evcc/loadpoints/1/chargePower`
 * Wallbox im Hausverbrauch enthalten? <b>Der Verbrauch der Wallbox ist nicht im Hausverbrauch enthalten</b>
@@ -130,14 +130,14 @@ MAPPING_2_FIELD_POSITIVE=grid_import_power
 MAPPING_2_FIELD_NEGATIVE=grid_export_power
 MAPPING_2_TYPE=integer
 # Battery power
-MAPPING_3_TOPIC=evcc/site/batteryPower
+MAPPING_3_TOPIC=evcc/site/battery/power
 MAPPING_3_MEASUREMENT_POSITIVE=pv
 MAPPING_3_MEASUREMENT_NEGATIVE=pv
 MAPPING_3_FIELD_POSITIVE=battery_discharging_power
 MAPPING_3_FIELD_NEGATIVE=battery_charging_power
 MAPPING_3_TYPE=integer
 # Battery SOC
-MAPPING_4_TOPIC=evcc/site/batterySoc
+MAPPING_4_TOPIC=evcc/site/battery/soc
 MAPPING_4_MEASUREMENT=pv
 MAPPING_4_FIELD=battery_soc
 MAPPING_4_TYPE=float
