@@ -59,7 +59,12 @@ Cloudflare aufrufen und einloggen, im Menü "<b>Zero Trust</b>" anwählen. Alter
 
 ### Docker Compose YAML und .env Datei
 
-Wenn man die Token Variable gern in der .env Datei pflegen möchte kann man, muss  token" auch durch `${CLOUDFLARE_TUNNEL_TOKEN}` ersetzen und dann in der `.env` Datei folgendes hinzufügen, wenn man die Variablen an einer Stelle haben möchte:
+#### Ohne HELIOS - Alles in einer YAML
+Wenn man die Token Variable gern in der .env Datei pflegen möchte kann man, muss  token" auch durch `${CLOUDFLARE_TUNNEL_TOKEN}` ersetzen und dann in der `.env` Datei folgendes hinzufügen, wenn man die Variablen an einer Stelle haben möchte.
+
+#### Mit HELIOS - Separate YAML
+
+Sollte HELIOS genutzt werden, ist es nicht möglich die vorhandene (von HELIOS administrierte `docker-compose.yml`)  legt man einfach ein separates Verzeichnis, bspw. `cloudflared`, an und legt die `.env` oder `docker-compose.yml` hier separat ab.
 
 Anpassung `.env` Datei:
 ```
@@ -91,17 +96,25 @@ Anpassung `compose.yml` (oder `docker-compose.yml`):
 
 ### Neustart des Docker-Stacks
 
+#### Ohne HELIOS
+
 Damit das Cloudflare Docker Image geladen und gestartet wird, muss der SOLECTRUS Docker-Stack einmal neu gestartet werden:
 
 `docker compose down && docker compose up -d`
 
-Falls auf dem Server keine Updates von Docker und Docker Compose durchgeführt wurden, muss der ältere Befehl genutzt werden:
-
-`docker-compose down && docker-compose up -d`
-
 Es dauert etwas, bis alle Container laufen und die Weboberfläche abrufbar ist.
 
 Laufen alle Docker-Container schon? Kann einfach mit `docker compose ps` nachgeprüft werden.
+
+#### Mit HELIOS
+
+Da wir ein separates Verzeichnis (Bsp.: `cloudflared`) angelegt haben, muss der Stack hier zunächst gestartet werden:
+
+`docker compose up -d`
+
+Ein etwaiger späterer Neustart des Cloudflare Tunnels kann ganz normal mit
+`docker compose down && docker compose up -d`
+erfolgen.
 
 ### (Sub-)Domain testen
 
